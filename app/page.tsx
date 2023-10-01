@@ -1,15 +1,28 @@
+import Container from '@/components/Container'
 import { Button } from '@/components/ui/button'
 import Image from 'next/image'
 
 export default function Home() {
   return (
-    <main className="p-24 flex flex-col items-center text-center">
-      <section className="pt-20 pb-8 flex flex-col items-center gap-8 ">
-        <h1 className="text-4xl font-bold">Shadcn &gt; &gt; bootstrap</h1>
-        <p className="w-[50%] text-lg">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet hic est
-          facere cum nostrum cumque omnis provident! Sint, tenetur minus.
-        </p>
+    <main className="flex flex-col pt-32">
+      <section>
+        <Container>
+          <h1 className="text-4xl">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus,
+            commodi?
+          </h1>
+          <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illo optio
+            placeat dolor sapiente aspernatur enim eos quae quod? Totam vel
+            mollitia tempore consequuntur magni ad, vero asperiores suscipit
+            optio voluptatibus veritatis voluptates officia ab tenetur nostrum,
+            perferendis, et quasi laudantium nesciunt dolorum labore fuga. Neque
+            eum ullam, est pariatur deleniti ipsam veniam, cupiditate nobis ea
+            natus quod vitae voluptates sunt quasi aperiam dolores itaque? Quasi
+            perferendis debitis numquam architecto ratione dolor, vel tenetur,
+            quas atque voluptas soluta nemo laborum fugit!
+          </p>
+        </Container>
       </section>
     </main>
   )

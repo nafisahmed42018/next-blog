@@ -31,7 +31,6 @@ export function ToggleMode() {
         <DropdownMenuItem onClick={() => setTheme('dark')}>
           Dark
         </DropdownMenuItem>
-
       </DropdownMenuContent>
     </DropdownMenu>
   )
