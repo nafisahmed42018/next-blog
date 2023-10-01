@@ -6,10 +6,104 @@ import NavLogo from './NavLogo'
 
 const Navbar = () => {
   const category = [
-    { id: 1, name: 'Category 1' },
-    { id: 2, name: 'Category 2' },
-    { id: 3, name: 'Category 3' },
-    { id: 4, name: 'Category 4' },
+    {
+      id: 1,
+      name: 'Category 1',
+      subCategory: [
+        {
+          id: 1,
+          name: 'subcategory1-1',
+          links: [
+            { id: 1, name: 'link1' },
+            { id: 2, name: 'link2' },
+            { id: 3, name: 'link3' },
+          ],
+        },
+        {
+          id: 2,
+          name: 'subcategory1-2',
+          links: [
+            { id: 1, name: 'link1' },
+            { id: 2, name: 'link2' },
+            { id: 3, name: 'link3' },
+          ],
+        },
+        {
+          id: 3,
+          name: 'subcategory1-3',
+          links: [
+            { id: 1, name: 'link1' },
+            { id: 2, name: 'link2' },
+            { id: 3, name: 'link3' },
+          ],
+        },
+      ],
+    },
+    {
+      id: 2,
+      name: 'Category 2',
+      subCategory: [
+        {
+          id: 1,
+          name: 'subcategory2-1',
+          links: [
+            { id: 1, name: 'link1' },
+            { id: 2, name: 'link2' },
+            { id: 3, name: 'link3' },
+          ],
+        },
+        {
+          id: 2,
+          name: 'subcategory2-2',
+          links: [
+            { id: 1, name: 'link1' },
+            { id: 2, name: 'link2' },
+          ],
+        },
+        {
+          id: 3,
+          name: 'subcategory2-3',
+          links: [
+            { id: 1, name: 'link1' },
+            { id: 2, name: 'link2' },
+            { id: 3, name: 'link3' },
+          ],
+        },
+      ],
+    },
+    {
+      id: 3,
+      name: 'Category 3',
+      subCategory: [
+        {
+          id: 1,
+          name: 'subcategory3-1',
+          links: [
+            { id: 1, name: 'link1' },
+            { id: 2, name: 'link2' },
+            { id: 3, name: 'link3' },
+          ],
+        },
+        {
+          id: 2,
+          name: 'subcategory3-2',
+          links: [
+            { id: 1, name: 'link1' },
+            { id: 2, name: 'link2' },
+            { id: 3, name: 'link3' },
+          ],
+        },
+        {
+          id: 3,
+          name: 'subcategory3-3',
+          links: [
+            { id: 1, name: 'link1' },
+            { id: 2, name: 'link2' },
+            { id: 3, name: 'link3' },
+          ],
+        },
+      ],
+    },
   ]
   const user = null
   return (
@@ -17,27 +111,30 @@ const Navbar = () => {
       <Container>
         <nav className="flex items-center justify-between">
           <NavLogo />
-          <ul className="flex gap-8 items-center">
-            <li>
-              <a href="#">Home</a>
-            </li>
-            <li className="relative peer">
-              <div>Category</div>
-              <ul className="absolute -left-4 top-12 bg-background border rounded-lg w-32 peer-hover:block hidden ">
-                {category.map((item) => (
-                  <li
-                    className="px-2 py-2 hover:bg-secondary cursor-pointer"
-                    key={item.id}
-                  >
-                    {item.name}
-                  </li>
-                ))}
-              </ul>
-            </li>
-            <li>
-              <ToggleMode />
-            </li>
-            {user && <li>Login</li>}
+          <ul className="m-0 p-0 list-none relative ">
+            {category.map((category) => (
+              <li className="inline-block hover:bg-[#444] group">
+                <a className="block px-7 py-3" href="/">
+                  {category.name}
+                </a>
+                <div className="absolute w-full hidden group-hover:grid group-hover:grid-cols-2 group-hover:gap-4 bg-black text-white px-7 py-4">
+                  {category.subCategory.map((item) => (
+                    <div className="">
+                      <h3 className="mb-4">{item.name}</h3>
+                      <ul>
+                        {item.links.map((link) => (
+                          <li className="block hover:bg-[#444]">
+                            <a className="block p-0" href="/">
+                              {link.name}
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+              </li>
+            ))}
           </ul>
         </nav>
       </Container>
