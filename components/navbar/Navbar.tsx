@@ -111,30 +111,26 @@ const Navbar = () => {
       <Container>
         <nav className="flex items-center justify-between">
           <NavLogo />
-          <ul className="m-0 p-0 list-none relative ">
-            {category.map((category) => (
-              <li className="inline-block hover:bg-[#444] group">
-                <a className="block px-7 py-3" href="/">
-                  {category.name}
-                </a>
-                <div className="absolute w-full hidden group-hover:grid group-hover:grid-cols-2 group-hover:gap-4 bg-black text-white px-7 py-4">
-                  {category.subCategory.map((item) => (
-                    <div className="">
-                      <h3 className="mb-4">{item.name}</h3>
-                      <ul>
-                        {item.links.map((link) => (
-                          <li className="block hover:bg-[#444]">
-                            <a className="block p-0" href="/">
-                              {link.name}
-                            </a>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
+          <ul className="flex gap-8 items-center">
+            <li>
+              <a href="#">Home</a>
+            </li>
+            <li>
+              <div className="relative group">
+                <div className="py-4">Category</div>
+                <ul className="absolute -left-8 bg-background w-[200%] hidden group-hover:block border-2 rounded-lg shadow-lg">
+                  {category.map((item) => (
+                    <li className="px-4 py-2 text-center hover:first:rounded-t-lg hover:last:rounded-b-lg hover:bg-primary cursor-pointer">
+                      {item.name}
+                    </li>
                   ))}
-                </div>
-              </li>
-            ))}
+                </ul>
+              </div>
+            </li>
+            <li>
+              <ToggleMode />
+            </li>
+            {user && <li>Login</li>}
           </ul>
         </nav>
       </Container>
