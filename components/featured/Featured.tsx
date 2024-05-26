@@ -16,7 +16,7 @@ const Featured = () => {
             src="/react.jpg"
             width={500}
             height={500}
-            alt="blog"
+            alt="featured-post"
           />
         </div>
         <div className="flex-1 flex flex-col gap-5">
