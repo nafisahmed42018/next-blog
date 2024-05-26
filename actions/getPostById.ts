@@ -1,5 +1,5 @@
-export const getPostById = async (postId: string) => {
-  const res = await fetch(`http://localhost:3000/api/posts/${postId}`, {
+export const getPostById = async (postSlug: string) => {
+  const res = await fetch(`http://localhost:3000/api/posts/${postSlug}`, {
     cache: 'no-store',
   })
   // console.log(res)

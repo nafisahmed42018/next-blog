@@ -8,9 +8,8 @@ import Header from '@/components/singleBlog/Header'
 import React from 'react'
 
 const SingleBlogPage = async ({ params }: any) => {
-  const { postId } = params
-  const { post } = await getPostById(postId)
-
+  const { postSlug } = params
+  const { post } = await getPostById(postSlug)
 
   return (
     <>
@@ -26,7 +25,7 @@ const SingleBlogPage = async ({ params }: any) => {
                   createdAt={post.createdAt}
                 />
                 <Body title={post.title} description={post.desc} />
-                <CommentBox />
+                <CommentBox postSlug={postSlug} />
               </div>
               <div className="flex-[2] hidden 2xl:flex mt-[53vh]">
                 <div className="h-fit sticky top-12">

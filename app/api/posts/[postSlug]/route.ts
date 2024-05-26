@@ -2,11 +2,11 @@ import { NextResponse } from 'next/server'
 import prisma from '@/lib/prismadb'
 
 export const GET = async (req: Request, { params }: any) => {
-  const { postId } = params
+  const { postSlug } = params
 
   try {
     const post = await prisma.post.findUnique({
-      where: { id: postId },
+      where: { slug: postSlug },
       include: { user: true },
     })
 

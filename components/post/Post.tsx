@@ -37,7 +37,7 @@ const Post: React.FC<PostProps> = ({ post }) => {
           {post.desc}
         </p>
         <Link
-          href={`/posts/${post.id}`}
+          href={`/posts/${post.slug}`}
           className="text-sm font-semibold underline underline-offset-2 -mt-2"
         >
           read more

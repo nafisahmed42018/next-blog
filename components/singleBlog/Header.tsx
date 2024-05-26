@@ -16,7 +16,7 @@ interface HeaderProps {
   createdAt: string
 }
 const Header: React.FC<HeaderProps> = ({ userName, img, views, createdAt }) => {
-  const isSaved = true
+  const isSaved = false
   return (
     <div className="flex flex-col gap-4 md:gap-8 max-w-[900px] w-full">
       {!img && (
