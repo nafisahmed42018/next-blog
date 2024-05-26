@@ -16,8 +16,13 @@ const Navbar = () => {
       const currentScroll = window.scrollY
       if (currentScroll <= 0) {
         header.classList.remove('border-b-2', 'shadow')
-      } else {
-        header.classList.add('border-b-2', 'shadow')
+      }
+      if (currentScroll > lastScroll) {
+        header.classList.remove('translate-y-0')
+        header.classList.add('border-b-2', 'shadow', '-translate-y-full')
+      }
+      if (currentScroll < lastScroll) {
+        header.classList.add('translate-y-0')
       }
 
       lastScroll = currentScroll
