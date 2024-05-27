@@ -2,12 +2,14 @@
 import Image from 'next/image'
 import styles from './card.module.css'
 import Link from 'next/link'
-import { Post } from '@prisma/client'
+import {type Post } from '@prisma/client'
+
 
 interface PostProps {
   post: Post
 }
 const Post: React.FC<PostProps> = ({ post }) => {
+
   return (
     <div
       key={post.id}
@@ -33,9 +35,7 @@ const Post: React.FC<PostProps> = ({ post }) => {
           <h4 className="text-sm font-semibold">{post.user.name}</h4>
         </div>
         <h2 className="text-xl font-bold line-clamp-2">{post.title}</h2>
-        <p className="text-sm font-medium text-muted-foreground  line-clamp-2">
-          {post.desc}
-        </p>
+        <p className="text-sm font-medium text-muted-foreground  line-clamp-2" dangerouslySetInnerHTML={{ __html: post.desc }} />
         <Link
           href={`/posts/${post.slug}`}
           className="text-sm font-semibold underline underline-offset-2 -mt-2"
@@ -51,7 +51,7 @@ const Post: React.FC<PostProps> = ({ post }) => {
               .join('-')}
           </div>
           <Link
-            href={`/blog?cat=unknown`}
+            href={`/blog?cat=${post.catSlug}`}
             className="flex items-center gap-2 py-0.5 px-2 rounded-full justify-center bg-accent text-center text-foreground"
           >
             {post.catSlug}

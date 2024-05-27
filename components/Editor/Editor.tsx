@@ -18,6 +18,7 @@ import {
 } from 'firebase/storage'
 import { app } from '@/utils/firebase'
 import { useRouter } from 'next/navigation'
+import { TiDelete } from 'react-icons/ti'
 const Editor = () => {
   const router = useRouter()
 
@@ -104,41 +105,57 @@ const Editor = () => {
         onChange={(e) => setCatSlug(e.target.value)}
       >
         <option value="nebula">Nebula</option>
-        <option value="fashion">fashion</option>
-        <option value="food">food</option>
-        <option value="culture">culture</option>
-        <option value="travel">travel</option>
-        <option value="coding">coding</option>
+        <option value="satellite">Satellite</option>
+        <option value="galaxy">Galaxy</option>
+        <option value="telescope">Telescope</option>
       </select>
-      <div className="flex items-center gap-6 ">
-        <button
-          className="pl-1 pr-[5px] pt-1 pb-[5px] my-1 w-fit rounded-full  border border-foreground text-foreground"
-          onClick={() => setOpen((prev) => !prev)}
-        >
-          <FaPlus size={18} />
-        </button>
-        {open && (
-          <div className="flex items-center gap-2  z-[100] w-full">
-            <input
-              type="file"
-              id="image"
-              onChange={(e: any) => setFile(e.target.files[0])}
-              className=" hidden"
-            />
-            <button className="p-1.5 rounded-full border border-primary text-primary">
-              <label htmlFor="image">
-                <FaUpload size={16} />
-              </label>
-            </button>
-            <button className="p-1.5 rounded-full border border-primary text-primary">
-              <FaImage size={16} />
-            </button>
-            <button className="p-1.5 rounded-full border border-primary text-primary">
-              <PiVideoBold size={16} />
-            </button>
+      {!file && (
+        <div className="flex items-center gap-6 ">
+          <button
+            className="pl-1 pr-[5px] pt-1 pb-[5px] my-1 w-fit rounded-full  border border-foreground text-foreground"
+            onClick={() => setOpen((prev) => !prev)}
+          >
+            <FaPlus size={18} />
+          </button>
+          {open && (
+            <div className="flex items-center gap-2  z-[100] w-full">
+              <input
+                type="file"
+                id="image"
+                onChange={(e: any) => setFile(e.target.files[0])}
+                className=" hidden"
+              />
+              <button className="p-1.5 rounded-full border border-primary text-primary">
+                <label htmlFor="image">
+                  <FaUpload size={16} />
+                </label>
+              </button>
+              <button className="p-1.5 rounded-full border border-primary text-primary">
+                <FaImage size={16} />
+              </button>
+              <button className="p-1.5 rounded-full border border-primary text-primary">
+                <PiVideoBold size={16} />
+              </button>
+            </div>
+          )}
+        </div>
+      )}
+      {file && (
+        <div className="relative w-fit self-center">
+          <Image
+            src={`${URL.createObjectURL(file)}`}
+            width={360}
+            height={360}
+            alt=""
+          />
+          <div
+            className=" absolute top-2 right-2 cursor-pointer"
+            onClick={() => setFile(null)}
+          >
+            <TiDelete className=" text-red-600 bg-transparent" size={28} />
           </div>
-        )}
-      </div>
+        </div>
+      )}
       <div className="flex flex-col justify-center">
         <EditorToolbar />
 
