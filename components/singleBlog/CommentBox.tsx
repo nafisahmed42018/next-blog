@@ -46,7 +46,9 @@ const CommentBox: React.FC<CommentProps> = ({ postSlug }) => {
   }
   return (
     <div className="max-w-[900px] w-full flex self-center flex-col gap-8 py-4 lg:py-8">
-      <h2 className="text-[24px] font-medium">Comments</h2>
+      <h2 className="text-[24px] font-medium" id="post-comment">
+        Comments
+      </h2>
 
       {session ? (
         <div className="flex flex-col md:flex-row items-start md:items-center  gap-8">

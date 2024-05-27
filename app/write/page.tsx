@@ -15,12 +15,7 @@ async function WriteBlogPage() {
       <main className="flex flex-col pt-28">
         <section>
           <Container>
-            <div className="py-8 flex flex-col gap-8">
-              <input
-                type="text"
-                placeholder="Title"
-                className="p-2 bg-background placeholder:text-foreground focus:outline-none border-b-2 border-b-accent"
-              />
+            <div className="py-12">
               <Editor />
             </div>
           </Container>

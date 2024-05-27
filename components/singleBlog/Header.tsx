@@ -8,15 +8,24 @@ import {
   BookmarkPlusIcon,
   Share2Icon,
 } from 'lucide-react'
+import Link from 'next/link'
 
 interface HeaderProps {
   userName: string
   img?: string
   views: number
   createdAt: string
+  commentCount: number
 }
-const Header: React.FC<HeaderProps> = ({ userName, img, views, createdAt }) => {
+const Header: React.FC<HeaderProps> = ({
+  userName,
+  img,
+  views,
+  createdAt,
+  commentCount,
+}) => {
   const isSaved = false
+
   return (
     <div className="flex flex-col gap-4 md:gap-8 max-w-[900px] w-full">
       {!img && (
@@ -58,9 +67,12 @@ const Header: React.FC<HeaderProps> = ({ userName, img, views, createdAt }) => {
           <div className="flex items-center gap-1 md:gap-2 hover:text-primary cursor-pointer">
             <EyeIcon /> <p className="text-[14px] font-light"> {views}</p>
           </div>
-          <div className="flex items-center gap-1 md:gap-2 hover:text-primary cursor-pointer">
-            <MessageCircleIcon /> <p className="text-[14px] font-light">16</p>
-          </div>
+          <Link href={`#post-comment`}>
+            <div className="flex items-center gap-1 md:gap-2 hover:text-primary cursor-pointer">
+              <MessageCircleIcon />{' '}
+              <p className="text-[14px] font-light">{commentCount}</p>
+            </div>
+          </Link>
         </div>
         <div className="flex items-center gap-3 md:gap-6">
           {isSaved ? (
